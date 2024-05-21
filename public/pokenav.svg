@@ -1,0 +1,18 @@
+<svg width="155" height="60" viewBox="0 0 155 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Mask Group">
+<mask id="mask0_1_1137" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="155" height="60">
+<rect id="Rectangle 2.1" width="155" height="60" rx="15" fill="url(#paint0_linear_1_1137)"/>
+</mask>
+<g mask="url(#mask0_1_1137)">
+<g id="Subtract" style="mix-blend-mode:soft-light" opacity="0.3">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M168.725 36.9016H147.26C145.643 46.4287 137.35 53.6831 127.363 53.6831C117.375 53.6831 109.082 46.4287 107.465 36.9016H86C87.7303 58.2303 105.588 75 127.363 75C149.137 75 166.995 58.2303 168.725 36.9016ZM168.686 29.6448H147.178C145.379 20.3421 137.191 13.3169 127.363 13.3169C117.534 13.3169 109.347 20.3421 107.547 29.6448H86.0393C87.9841 8.53241 105.743 -8 127.363 -8C148.983 -8 166.741 8.53241 168.686 29.6448ZM114.546 33.5C114.546 26.4214 120.284 20.6831 127.363 20.6831C134.441 20.6831 140.18 26.4214 140.18 33.5C140.18 40.5786 134.441 46.3169 127.363 46.3169C120.284 46.3169 114.546 40.5786 114.546 33.5Z" fill="white"/>
+</g>
+</g>
+</g>
+<defs>
+<linearGradient id="paint0_linear_1_1137" x1="-7" y1="60" x2="-2.69124" y2="-14.852" gradientUnits="userSpaceOnUse">
+<stop stop-color="#46A487"/>
+<stop offset="1" stop-color="#46D7AB"/>
+</linearGradient>
+</defs>
+</svg>

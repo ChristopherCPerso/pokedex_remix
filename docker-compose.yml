@@ -1,0 +1,33 @@
+## Fichier : docker-compose.yml
+
+version: '3.8'
+services:
+  db:
+    image: mysql:latest
+    container_name: db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: pikatecna
+      MYSQL_DATABASE: pokedex
+      MYSQL_USER: ChrisAtecna
+      MYSQL_PASSWORD: florizatecna
+    ports:
+      - '3306:3306'
+    volumes:
+      - db_data:/var/lib/mysql
+
+  # Service PHPMyAdmin
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    ports:
+      - '8080:80'
+    environment:
+      PMA_ARBITRARY: 1
+      MYSQL_ROOT_PASSWORD: pikatecna
+      MYSQL_USER: ChrisAtecna
+      MYSQL_PASSWORD: florizatecna
+      MYSQL_HOST: db
+
+volumes:
+  db_data:
