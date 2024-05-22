@@ -2,7 +2,7 @@
 [build]
   command = "remix build"
   functions = "netlify/functions"
-  publish = "build/client"
+  publish = "build"
 
 [dev]
   command = "remix watch"
