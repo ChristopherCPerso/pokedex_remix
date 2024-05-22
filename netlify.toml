@@ -15,5 +15,5 @@
 
 [[headers]]
   for = "/build/*"
-  [headers.values]Ò
+  [headers.values]
     "Cache-Control" = "public, max-age=31536000, s-maxage=31536000"
