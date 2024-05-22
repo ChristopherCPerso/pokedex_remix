@@ -19,12 +19,12 @@ export default async function getPokemonEvolution(params: number) {
     const object = {
       from: {
         name: pokemon.chain.species.name,
-        imagePokemon: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${parseLink(pokemon.chain.species.url)}.png`,
+        imagePokemon: `${process.env.IMG_URL}/${parseLink(pokemon.chain.species.url)}.png`,
         id: parseLink(pokemon.chain.species.url),
       },
       to: {
         name: value.species.name,
-        imagePokemon: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${parseLink(value.species.url)}.png`,
+        imagePokemon: `${process.env.IMG_URL}/${parseLink(value.species.url)}.png`,
         id: parseLink(value.species.url),
       },
       details: value.evolution_details,
@@ -37,12 +37,12 @@ export default async function getPokemonEvolution(params: number) {
       const subObject = {
         from: {
           name: value.species.name,
-          imagePokemon: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${parseLink(value.species.url)}.png`,
+          imagePokemon: `${process.env.IMG_URL}/${parseLink(value.species.url)}.png`,
           id: parseLink(value.species.url),
         },
         to: {
           name: subValue.species.name,
-          imagePokemon: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${parseLink(subValue.species.url)}.png`,
+          imagePokemon: `${process.env.IMG_URL}/${parseLink(subValue.species.url)}.png`,
           id: parseLink(subValue.species.url),
         },
         details: value.evolution_details,
