@@ -23,7 +23,7 @@ export default async function listPokemon(
       name: pokemon.name,
       color: species.color.name,
       types: type,
-      img: `${process.env.IMG_URL}/${pokemon.id}.png`,
+      img: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`,
     };
 
     return pokemonObject;
@@ -49,7 +49,7 @@ export async function listPokemonFav(id: number) {
     name: pokemon.name,
     color: species.color.name,
     types: pokemonTypes,
-    img: `${process.env.IMG_URL}/${pokemon.id}.png`,
+    img: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`,
   };
 
   console.log(pokemonObject);

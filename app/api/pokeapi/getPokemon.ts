@@ -23,7 +23,7 @@ export default async function getPokemon(
   const pokemon = {
     id: pokemonStat.id,
     name: name,
-    img: `${process.env.IMG_URL}/${pokemonStat.id}.png`,
+    img: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonStat.id}.png`,
     types: pokemonStat.types.map((t) => t.type.name),
     flavor_text: flavor_text,
     weight: pokemonStat.weight,
