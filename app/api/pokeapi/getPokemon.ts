@@ -37,11 +37,11 @@ export default async function getPokemon(
     prevPokemonImg:
       pokemonStat.id === 1
         ? null
-        : `${process.env.IMG_URL}/${pokemonStat.id - 1}.png`,
+        : `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonStat.id - 1}.png`,
     nextPokemonImg:
       pokemonStat.id === 1508
         ? null
-        : `${process.env.IMG_URL}/${pokemonStat.id + 1}.png`,
+        : `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonStat.id + 1}.png`,
     favorite: isFavorite,
   };
 
