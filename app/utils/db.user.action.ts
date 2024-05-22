@@ -20,6 +20,19 @@ export async function addUser(
   return user;
 }
 
+export async function changePassword(email: string, password: string) {
+  const newpassword = await prisma.users.update({
+    where: {
+      email: email,
+    },
+    data: {
+      password: await encrypt(password),
+      updated_at: new Date(),
+    },
+  });
+  return newpassword;
+}
+
 export async function login(email: string, password: string) {
   const user = await prisma.users.findUnique({
     where: {
