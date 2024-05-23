@@ -1,0 +1,65 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("POSTGRES_PRISMA_URL")
+}
+
+
+model adonis_schema {
+  id             Int       @id @default(autoincrement()) 
+  name           String    @db.VarChar(255)
+  batch          Int
+  migration_time DateTime? @default(now()) @db.Timestamp(0)
+}
+
+model adonis_schema_versions {
+  version Int @id 
+}
+
+model articles {
+  id            Int       @id @default(autoincrement()) 
+  date          DateTime? @db.Timestamp(0)
+  title         String    @db.VarChar(50)
+  content       String    @db.Text
+  image_article String    @db.Text
+  userId        Int?      
+  created_at    DateTime? @db.Timestamp(0)
+  updated_at    DateTime? @db.Timestamp(0)
+  users         users?    @relation(fields: [userId], references: [id])
+
+  @@index([userId], map: "articles_userid_foreign")
+}
+
+model user_favorites {
+  id         Int       @id @default(autoincrement()) 
+  pokemon_id Int
+  user_id    Int?      
+  created_at DateTime? @db.Timestamp(0)
+  updated_at DateTime? @db.Timestamp(0)
+  users      users?    @relation(fields: [user_id], references: [id])
+
+  @@index([user_id], map: "user_favorites_user_id_foreign")
+}
+
+model users {
+  id             Int              @id @default(autoincrement()) 
+  username       String           @unique(map: "users_username_unique") @db.VarChar(50)
+  email          String           @unique(map: "users_email_unique") @db.VarChar(80)
+  password       String           @db.VarChar(255)
+  profil_picture String?          @db.Text
+  is_admin       Boolean?         @default(false)
+  is_active      Boolean?         @default(false)
+  created_at     DateTime?        @db.Timestamp(0)
+  updated_at     DateTime?        @db.Timestamp(0)
+  articles       articles[]
+  user_favorites user_favorites[]
+}
