@@ -9,7 +9,7 @@ export const { getSession, commitSession, destroySession } =
   createCookieSessionStorage({
     cookie: {
       name: "__session",
-      domain: "localhost",
+      domain: "https://pokedex-remix-five.vercel.app/",
       httpOnly: true,
       maxAge: 3600 * 24 * 7,
       path: "/",

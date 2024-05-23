@@ -26,8 +26,6 @@ const Schema = z.object({
 export async function loader({ request }: LoaderFunctionArgs) {
   const session = await getSession(request.headers.get("Cookie"));
 
-  const url = new URL(request.url);
-  console.log(url);
   if (session.has("email")) {
     return redirect("/dashboard");
   }
