@@ -1,5 +1,8 @@
 import { users } from "@prisma/client";
 import { createCookieSessionStorage, redirect } from "@remix-run/node";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 export interface Session {
   user: Omit<users, "email">;
@@ -9,13 +12,16 @@ export const { getSession, commitSession, destroySession } =
   createCookieSessionStorage({
     cookie: {
       name: "__session",
-      domain: "https://pokedex-remix-five.vercel.app/",
+      domain:
+        process.env.NODE_ENV === "production"
+          ? "pokedex-remix-five.vercel.app"
+          : undefined,
       httpOnly: true,
       maxAge: 3600 * 24 * 7,
       path: "/",
       sameSite: "lax",
-      secrets: ["s3cret1"],
-      secure: true,
+      secrets: [process.env.SESSION_SECRET || "s3cret1"],
+      secure: process.env.NODE_ENV === "production",
     },
   });
 
