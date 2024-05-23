@@ -20,7 +20,7 @@ export default function Index() {
     <>
       <header className="rounded-bl-3xl rounded-br-3xl bg-white pb-16">
         <Header title="What Pokemon are you looking for ?"></Header>
-        <SearchBar></SearchBar>test
+        <SearchBar></SearchBar>
         <nav className="grid grid-cols-2 gap-3 px-7">
           <CardNav link="/pokedex" title="Pokedex" color="bg-grass"></CardNav>
           <CardNav link="#" title="Moves" color="bg-fire"></CardNav>
