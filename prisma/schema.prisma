@@ -1,61 +1,58 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
 model adonis_schema {
-  id             Int       @id @default(autoincrement()) 
-  name           String    
+  id             Int       @id @default(autoincrement()) @db.UnsignedInt
+  name           String    @db.VarChar(255)
   batch          Int
-  migration_time DateTime? @default(now()) 
+  migration_time DateTime? @default(now()) @db.Timestamp(0)
 }
 
 model adonis_schema_versions {
-  version Int @id 
+  version Int @id @db.UnsignedInt
 }
 
 model articles {
-  id            Int       @id @default(autoincrement()) 
-  date          DateTime? 
-  title         String   
-  content       String    
-  image_article String    
-  userId        Int?      
-  created_at    DateTime? 
-  updated_at    DateTime? 
-  users         users?    @relation(fields: [userId], references: [id])
+  id            Int       @id @default(autoincrement()) @db.UnsignedInt
+  date          DateTime? @db.Timestamp(0)
+  title         String    @db.VarChar(50)
+  content       String    @db.Text
+  image_article String    @db.Text
+  userId        Int?      @db.UnsignedInt
+  created_at    DateTime? @db.Timestamp(0)
+  updated_at    DateTime? @db.Timestamp(0)
+  users         users?    @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "articles_userid_foreign")
 
   @@index([userId], map: "articles_userid_foreign")
 }
 
 model user_favorites {
-  id         Int       @id @default(autoincrement()) 
+  id         Int       @id @default(autoincrement()) @db.UnsignedInt
   pokemon_id Int
-  user_id    Int?      
-  created_at DateTime? 
-  updated_at DateTime? 
-  users      users?    @relation(fields: [user_id], references: [id])
+  user_id    Int?      @db.UnsignedInt
+  created_at DateTime? @db.Timestamp(0)
+  updated_at DateTime? @db.Timestamp(0)
+  users      users?    @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_favorites_user_id_foreign")
 
   @@index([user_id], map: "user_favorites_user_id_foreign")
 }
 
 model users {
-  id             Int              @id @default(autoincrement()) 
-  username       String           @unique(map: "users_username_unique")
-  email          String           @unique(map: "users_email_unique") 
-  password       String           
-  profil_picture String?          
+  id             Int              @id @default(autoincrement()) @db.UnsignedInt
+  username       String           @unique(map: "users_username_unique") @db.VarChar(50)
+  email          String           @unique(map: "users_email_unique") @db.VarChar(80)
+  password       String           @db.VarChar(255)
+  profil_picture String?          @db.Text
   is_admin       Boolean?         @default(false)
   is_active      Boolean?         @default(false)
-  created_at     DateTime?        
-  updated_at     DateTime?        
+  created_at     DateTime?        @db.Timestamp(0)
+  updated_at     DateTime?        @db.Timestamp(0)
   articles       articles[]
   user_favorites user_favorites[]
 }
