@@ -13,8 +13,8 @@ export default function Header({
 }: HeaderProps) {
   return (
     <>
-      <div className="rounded-bl-3xl rounded-br-3xl px-7 pb-16 pt-14 text-white">
-        <div className="mb-16 flex flex-row justify-between">
+      <div className="rounded-bl-3xl rounded-br-3xl px-7 pb-16 pt-6 text-white">
+        <div className="mb-8 flex flex-row justify-between lg:pb-16">
           {backButton && <div className="basis-1/2">{backButton}</div>}
           {logButton && <div className="basis-1/2 text-end">{logButton}</div>}
         </div>
