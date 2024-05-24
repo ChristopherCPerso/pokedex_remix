@@ -18,7 +18,7 @@ export const meta: MetaFunction = () => {
 export default function Index() {
   return (
     <>
-      <header className="rounded-bl-3xl rounded-br-3xl bg-white pb-16">
+      <header className="rounded-bl-3xl rounded-br-3xl pb-16 dark:bg-white">
         <Header title="What Pokemon are you looking for ?"></Header>
         <SearchBar></SearchBar>
         <nav className="grid grid-cols-2 gap-3 px-7">

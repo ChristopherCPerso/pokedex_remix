@@ -22,7 +22,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body className="mx-auto max-w-md bg-white font-circularstd-medium">
+      <body className="mx-auto max-w-md font-circularstd-medium dark:bg-white">
         {children}
         <ScrollRestoration />
         <Scripts />
